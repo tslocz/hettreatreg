@@ -1,0 +1,29 @@
+#' National Supported Work -- Current Population Survey (NSW--CPS)
+#'
+#' The data set combines a subsample of the experimental treated units from NSW, constructed by Dehejia and Wahba (1999), with "CPS-1," a nonexperimental comparison group from CPS, constructed by LaLonde (1986).
+#'
+#' @return A data frame with 11 variables:
+#' \item{\code{treated}}{1 if treated, 0 otherwise}
+#' \item{\code{age}}{age}
+#' \item{\code{age2}}{age squared}
+#' \item{\code{educ}}{years of schooling}
+#' \item{\code{black}}{1 if black, 0 otherwise}
+#' \item{\code{hispanic}}{1 if Hispanic, 0 otherwise}
+#' \item{\code{married}}{1 if married, 0 otherwise}
+#' \item{\code{nodegree}}{1 if high school dropout, 0 otherwise}
+#' \item{\code{re74}}{real earnings in 1974}
+#' \item{\code{re75}}{real earnings in 1975}
+#' \item{\code{re78}}{real earnings in 1978}
+#'
+#'
+#'
+#' @references Dehejia, R. H. and Wahba, S. (1999). "Causal Effects in Nonexperimental Studies: Reevaluating the Evaluation of Training Programs," \emph{Journal of the American Statistical Association}, 94:1053--1062.
+#'
+#' LaLonde, R. J. (1986). "Evaluating the Econometric Evaluations of Training Programs with Experimental Data," \emph{American Economic Review}, 76:604--620.
+"nswcps"
+
+treated = "treated"; age = "age"; age2 = "age2";
+educ = "educ"; black = "black"; hispanic = "hispanic";
+married = "married"; nodegree = "nodegree"; re74 = "re74"; re75 = "re75"; re78 = "re78";
+list(treated, age, age2, educ, black, hispanic, married, nodegree, re74, re75, re78)
+
