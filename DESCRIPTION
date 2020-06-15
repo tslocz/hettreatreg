@@ -1,0 +1,23 @@
+Package: hettreatreg
+Type: Package
+Title: Heterogeneous Treatment Effects in Regression Analysis
+Version: 0.1.0
+Authors@R: c(
+    person("Tymon", "Sloczynski", role = c("aut"), email = "tslocz@brandeis.edu"),
+    person("Mark", "McAvoy", role = c("cre"), email = "mcavoy@brandeis.edu"))
+Description: Computes diagnostics for linear regression when treatment effects are heterogeneous.
+    The output of 'hettreatreg' represents ordinary least squares (OLS) 
+    estimates of the effect of a binary treatment as a weighted average of the average treatment effect 
+    on the treated (ATT) and the average treatment effect on the untreated (ATU). 
+    The program estimates the OLS weights on these parameters, computes the associated model diagnostics, 
+    and reports the implicit OLS estimate of the average treatment effect (ATE). 
+    See Sloczynski (2019), <http://people.brandeis.edu/~tslocz/Sloczynski_paper_regression.pdf>.
+URL: https://github.com/tslocz/hettreatreg
+Depends:
+    R (>= 3.1)
+Imports:
+  stats
+License: GPL-2
+Encoding: UTF-8
+LazyData: TRUE
+RoxygenNote: 7.1.0
