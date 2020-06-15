@@ -4,7 +4,7 @@
 \alias{hettreatreg}
 \title{OLS Weights on Heterogeneous Treatment Effects}
 \usage{
-hettreatreg(outcome, treatment, covariates)
+hettreatreg(outcome, treatment, covariates, verbose = FALSE)
 }
 \arguments{
 \item{outcome}{the outcome variable.}
@@ -12,6 +12,8 @@ hettreatreg(outcome, treatment, covariates)
 \item{treatment}{the treatment variable. The variable must be binary and coded 0 for the untreated units and 1 for the treated units.}
 
 \item{covariates}{the list of control variables. The list must not include the treatment variable.}
+
+\item{verbose}{logical. If \code{TRUE} estimation output is displayed.}
 }
 \value{
 \item{\code{OLS}}{ OLS estimate of the treatment effect}
@@ -25,10 +27,10 @@ hettreatreg(outcome, treatment, covariates)
  \item{\code{ATU}}{  implicit OLS estimate of ATU}
 }
 \description{
-\code{hettreatreg} is used to compute diagnostics for linear regression when treatment effects are heterogeneous.
+Computes diagnostics for linear regression when treatment effects are heterogeneous.
 }
 \details{
-\code{hettreatreg} represents OLS estimates of the effect of a binary treatment as a weighted average of the average treatment effect on the treated (ATT) and the average treatment effect on the untreated (ATU). The program estimates the OLS weights on these parameters, computes the associated model diagnostics, and reports the implicit OLS estimate of the average treatment effect (ATE). See Sloczynski (2019) for the underlying theoretical results and further details.
+\code{hettreatreg} represents ordinary least squares (OLS) estimates of the effect of a binary treatment as a weighted average of the average treatment effect on the treated (ATT) and the average treatment effect on the untreated (ATU). The program estimates the OLS weights on these parameters, computes the associated model diagnostics, and reports the implicit OLS estimate of the average treatment effect (ATE). See Sloczynski (2019) for the underlying theoretical results and further details.
 
 The arguments \code{outcome} and \code{treatment} are used to designate an outcome variable and a treatment variable, respectively. The treatment variable must be binary and coded 0 for the untreated units and 1 for the treated units. \code{covariates} is a list of control variables that must not include the treatment variable.
 
@@ -49,12 +51,13 @@ outcome <- nswcps$re78
 # save the treatment variable
 treated <- nswcps$treated
 
-# select RHS variables
+# select control variables
 our_vars <- c("age", "age2", "educ", "black", "hispanic", "married", "nodegree")
 covariates <- subset(nswcps, select = our_vars)
 
 # run function
-hettreatreg(outcome, treated, covariates)
+results <- hettreatreg(outcome, treated, covariates)
+print(results)
 
 }
 \references{
